@@ -7,6 +7,9 @@ import PrivateRouter from '../Components/PrivateRouter';
 import FlightSearch from './FlightSearch';
 import Home from './Home';
 import Stays from './Stays';
+import ExpediaGoup from './ExpediaGoup';
+import AboutUs from './AboutUs';
+import Support from './Support';
 
 const AllRoutes = () => {
     return (
@@ -52,6 +55,9 @@ const AllRoutes = () => {
                 />
                 <Route path='/success' element={<SuccessPage />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/expedia' element={<ExpediaGoup />}></Route>
+                <Route path='/about' element={<AboutUs />}></Route>
+                <Route path='/support' element={<Support />}></Route>
             </Routes>
         </div>
     )
