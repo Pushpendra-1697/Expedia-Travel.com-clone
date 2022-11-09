@@ -12,3 +12,6 @@ export default Stays;
 //codesend box link 'https://codesandbox.io/s/axios-forked-qg2rf2?file=/src/Components/Github.jsx';
 
 //google map
+
+//Admin Side means Should able to add some data/ product so use json-server;
+//only Admin can add some data/product by json server/localhost

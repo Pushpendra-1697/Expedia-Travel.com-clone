@@ -42,7 +42,7 @@ const Navbar = () => {
     const { isAuth, logoutUser, token } = useContext(AuthContext);
     return (
         <div style={{ display: "flex", gap: "3rem", justifyContent: "center", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", padding: "20px", marginBottom: "5%" }}>
-            <Link to={"/users"}> <Image src='https://www.expedia.co.in/_dms/header/logo.svg?locale=en_GB&siteid=27&2' alt='' /> </Link>
+            <Link to={"/"}> <Image src='https://www.expedia.co.in/_dms/header/logo.svg?locale=en_GB&siteid=27&2' alt='' /> </Link>
             <Link to={"/users"}> <Image w={"40px"} h={"40px"} src={logo} alt='logo' /> </Link>
             <Text color='green'>Token: {token}</Text>
             {links.map((ele) =>
