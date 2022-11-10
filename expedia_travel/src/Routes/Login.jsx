@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import { Navigate } from 'react-router-dom';
-import { Box, Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Image, Heading, Input, Text, Spinner } from "@chakra-ui/react";
+import { Box, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Image, Heading, Input, Text, Spinner } from "@chakra-ui/react";
 import { Icon } from '@chakra-ui/react';
 import { BsFacebook, BsApple, BsGoogle } from 'react-icons/bs';
 
@@ -12,6 +12,8 @@ function Login() {
   const { isAuth, token, loginUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const FormRef = useRef();
+
+
 
 
   const handleChange = (e) => {
@@ -26,7 +28,8 @@ function Login() {
         body: JSON.stringify(formData),
       })
     )
-  }
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     setFlag(true);
@@ -42,6 +45,15 @@ function Login() {
       console.log(err)
     });
   };
+
+  const OriginAdmin = {
+    email: "pushpendra1697@gmail.com",
+    password: "Push1697@",
+  };
+  if (isAuth && token === undefined && formData.email === OriginAdmin.email && formData.password === OriginAdmin.password) {
+    alert("You are Admin So You can Add any Product")
+    return <Navigate to='/stays' />
+  }
 
   if (isAuth && token !== null) {
     return <Navigate to='/'></Navigate>
@@ -92,9 +104,7 @@ function Login() {
             </Button>
           </ModalFooter>
         </ModalContent>
-
       </Modal>
-
     </Box>
   );
 }
