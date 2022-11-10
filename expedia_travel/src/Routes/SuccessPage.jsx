@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const SuccessPage = () => {
     const [count, setCount] = useState(5);
