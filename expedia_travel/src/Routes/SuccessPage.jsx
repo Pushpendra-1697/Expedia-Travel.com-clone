@@ -31,7 +31,6 @@ const SuccessPage = () => {
                     if (formData.email === email) {
                         navigate("/");
                     } else {
-
                         alert("Sorry!😒 Please Fill Correct Email Address")
                         setCount(5);
                     }
