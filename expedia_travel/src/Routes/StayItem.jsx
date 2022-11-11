@@ -32,7 +32,7 @@ const StayItem = ({ handleAddStays }) => {
 
     return (
         <>
-            <Box w={"40%"} m="auto" padding="10px" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+            <Box w={"40%"} m="auto" padding="20px 10px" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                 <form onSubmit={onSubmit}>
                     <label>Image url</label>
                     <Input color="green" ml={"10px"} w={"40%"} onChange={handleChange} type={"url"} name="image_url" value={image_url} placeholder='Hotel Image'></Input>

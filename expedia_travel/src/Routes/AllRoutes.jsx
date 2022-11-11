@@ -10,6 +10,7 @@ import Stays from './Stays';
 import ExpediaGoup from './ExpediaGoup';
 import AboutUs from './AboutUs';
 import Support from './Support';
+import Cart from './Cart';
 
 const AllRoutes = () => {
     return (
@@ -53,11 +54,19 @@ const AllRoutes = () => {
                         </PrivateRouter>
                     }
                 />
-                <Route path='/success' element={<SuccessPage />} />
+                <Route path='/success' element={
+                    <PrivateRouter>
+                        <SuccessPage />
+                    </PrivateRouter>
+                } />
                 <Route path='/login' element={<Login />} />
                 <Route path='/expedia' element={<ExpediaGoup />}></Route>
                 <Route path='/about' element={<AboutUs />}></Route>
                 <Route path='/support' element={<Support />}></Route>
+                <Route path='/cart' element={<PrivateRouter>
+                    <Cart />
+                </PrivateRouter>}
+                />
             </Routes>
         </div>
     )

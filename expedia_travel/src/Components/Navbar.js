@@ -13,10 +13,6 @@ const links = [
         title: "Users",
     },
     {
-        to: "/success",
-        title: "Success",
-    },
-    {
         to: "/login",
         title: "Login",
     },
@@ -27,6 +23,10 @@ const links = [
     {
         to: "/stays",
         title: "Stays",
+    },
+    {
+        to: "/cart",
+        title: "Cart",
     }
 ];
 const Navbar = () => {
@@ -43,7 +43,7 @@ const Navbar = () => {
     return (
         <Box style={{ display: "flex", gap: "3rem", justifyContent: "center", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", padding: "20px", marginBottom: "5%" }}>
             <Link to={"/"}> <Image display={{ base: "block", sm: "none", lg: "block" }} src='https://www.expedia.co.in/_dms/header/logo.svg?locale=en_GB&siteid=27&2' alt='' /> </Link>
-            <Link to={"/users"}> <Image display={{ base: "block", sm: "none", lg: "block" }} w={"40px"} h={"40px"} src={logo} alt='logo' /> </Link>
+            <Link to={"/"}> <Image display={{ base: "block", sm: "none", lg: "block" }} w={"40px"} h={"40px"} src={logo} alt='logo' /> </Link>
             <Text display={{ base: "block", sm: "none", lg: "block" }} color='green'>Token: {token}</Text>
             {links.map((ele) =>
                 <NavLink

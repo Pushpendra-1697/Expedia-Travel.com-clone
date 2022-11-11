@@ -57,10 +57,10 @@ const AllUsersPage = () => {
           <Link style={{ textDecoration: "none", color: "red", }} to={`/users/${ele.id}`}> Show More Details</Link>
         </Box>
       )}
-      <Box>
+      <Box color={"green"}>
         <Button onClick={() => setPage(1)}>First</Button>
         <Button disabled={page <= 1} onClick={() => setPage(page - 1)}>PRE</Button>
-        <Button disabled>{page}</Button>
+        <Button disabled={true} color={"red"}>{page}</Button>
         <Button disabled={page === 10} onClick={() => setPage(page + 1)}>NEXT</Button>
         <Button onClick={() => setPage(totalPages)} disabled={page > 3}>Last</Button>
       </Box>

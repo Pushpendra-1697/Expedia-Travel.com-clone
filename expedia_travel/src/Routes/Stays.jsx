@@ -1,9 +1,11 @@
 import StayItem from "./StayItem";
 import { addStays, deleteStays, getStays, ToggleStatus } from "./api";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Container, Spinner, Image, Box, Heading, Text, Button, Input, Select } from "@chakra-ui/react";
 import { fetchProduct } from "./fetchProduct";
 import Footer from '../Components/Footer';
+import { CardContext } from '../Context/CartContext/CartContextProvider';
+import { addToCart } from '../Context/CartContext/action';
 
 let totalPages = 10;
 const Stays = () => {
@@ -14,7 +16,7 @@ const Stays = () => {
   const [query, setQuery] = useState('');
   const [limit, setLimit] = useState(3);
   const [tempo, setTempo] = useState('');
-
+  const { state, dispatch } = useContext(CardContext);
 
   const handleGetStays = (page, limit, value) => {
     setLoading(true);
@@ -40,6 +42,21 @@ const Stays = () => {
   useEffect(() => {
     handleGetStays(page, limit)
   }, [page, limit]);
+
+  const handleAddToCart = (ele) => {
+    let cartAdd = false;
+    for (let i = 0; i < state.length; i++) {
+      if (state[i].id === ele.id) {
+        alert(`Product Added Already!`);
+        cartAdd = true;
+        break;
+      }
+    }
+    if (cartAdd === false) {
+      alert(`Product Added Successfully!`);
+      dispatch(addToCart(ele));
+    }
+  };
 
   const handleAddStays = (data) => {
     addStays(data)
@@ -112,12 +129,11 @@ const Stays = () => {
         <Container className="mapouter"><Box className="gmap_canvas"><iframe loading="eager" src={`https://maps.google.com/maps?q=${tempo}&t=&z=13&ie=UTF8&iwloc=&output=embed`} width="250" height="150" id="gmap_canvas" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe><a href="https://2piratebay.org"></a><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></Box></Container>
       </Container>
 
-
       <Container mt={"3%"}>
-        <Box display={"flex"} justifyContent="space-between">
+        <Box display={"flex"} justifyContent="space-between" color={"green"}>
           <Button onClick={() => setPage(1)}>First</Button>
           <Button disabled={page <= 1} onClick={() => handlePage(-1)}>PREV</Button>
-          <Button disabled>{page}</Button>
+          <Button color={"red"} disabled>{page}</Button>
           <Button disabled={page === totalPages} onClick={() => handlePage(1)}>NEXT</Button>
           <Button onClick={() => setPage(totalPages)}>Last</Button>
           <Select w="100px" onChange={(e) => setLimit(e.target.value)}>
@@ -141,6 +157,7 @@ const Stays = () => {
             </Box>
             <Button m={"1%"} mb="3%" onClick={() => handleToggleStays(ele.id, !ele.isStatus)}>Toggle</Button>
             <Button m={"1%"} mb="3%" onClick={() => handleDeleteStays(ele.id)}>Delete</Button>
+            <Button colorScheme="teal" size="md" m={"2% 1%"} onClick={() => handleAddToCart(ele)}>Add To Cart</Button>
           </Box>
         )}
       </Container>
@@ -152,15 +169,3 @@ const Stays = () => {
 
 export default Stays;
 
-
-
-
-
-
-
-
-
-//google map ---- take help from notes-----make in Stays Page bcz here You got locaton After filter;
-//if this filter is not working then use filter of classNotes
-//add to Cart page
-//checkOut page
