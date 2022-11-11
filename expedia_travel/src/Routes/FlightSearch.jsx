@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import SearchResults from './SearchResults';
-import { Button, Heading, Input, Text, Table, Thead, Tr, Th, Tbody } from '@chakra-ui/react';
+import { Button, Heading, Input, Text, Table, Thead, Tr, Th, Tbody, Box } from '@chakra-ui/react';
 
 export const fetchData = async () => {
   try {
@@ -44,18 +44,18 @@ function FlightSearch() {
   // console.log(filter)
   return (
     <div>
-      <div>
+      <Box boxShadow= "rgba(0, 0, 0, 0.35) 0px 5px 15px;" w={"600px"} m="auto" mb={"3%"}>
         <section>
           <Heading color={"green"}>Flight Search</Heading>
           <br />
-          <Input w={"50%"} data-testid="source-input" placeholder="Source" onChange={hadleChange} />
+          <Input color={"green"} w={"30%"} data-testid="source-input" placeholder="Source" onChange={hadleChange} />
           <br /> <br />
-          <Input w={"50%"} data-testid="destination-input" placeholder="Destination" onChange={hadleChange} />
+          <Input color={"green"} w={"30%"} data-testid="destination-input" placeholder="Destination" onChange={hadleChange} />
           <br /> <br />
-          <Button onClick={handleSearch} data-testid="search-button">Search</Button>
+          <Button color={"white"} bg="blue" mb={'3%'} onClick={handleSearch} data-testid="search-button">Search</Button>
         </section>
-      </div>
-      {state === '' || filter.length === 0 ? <Text color={"red"}>No Flights Found</Text> :
+      </Box>
+      {state === '' || filter.length === 0 ? <Text color={"red"} fontSize="24px">No Flights Found</Text> :
         <Table border={"1px solid red"} mt="5%">
           <Thead>
             <Tr>

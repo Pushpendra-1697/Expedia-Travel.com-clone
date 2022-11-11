@@ -40,9 +40,11 @@ function Login() {
     }, 5000);
 
     handleLogin(formData).then((res) => res.json()).then((res) => {
-      loginUser(res.token);
+      loginUser(res.token, formData.email);
     }).catch((err) => {
       console.log(err)
+    }).finally(()=>{
+      setLoading(false);
     });
   };
 
@@ -53,9 +55,7 @@ function Login() {
   if (isAuth && token === undefined && formData.email === OriginAdmin.email && formData.password === OriginAdmin.password) {
     alert("You are Admin So You can Add any Product")
     return <Navigate to='/stays' />
-  }
-
-  if (isAuth && token !== null) {
+  }else if (isAuth && token !== null) {
     return <Navigate to='/'></Navigate>
   }
   return (
