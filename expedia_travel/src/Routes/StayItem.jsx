@@ -23,7 +23,6 @@ const StayItem = ({ handleAddStays }) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        // console.log(formData);
         handleAddStays(formData);
         setFormData({ image_url: '', name: '', location: '', rating: '', price: '', isStatus: "" })
     }
