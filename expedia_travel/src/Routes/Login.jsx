@@ -2,16 +2,18 @@ import { useRef, useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 import { Navigate } from 'react-router-dom';
-import { Box, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Image, Heading, Input, Text, Spinner } from "@chakra-ui/react";
+import { Box, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Image, Heading, Input, Text, Spinner, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { Icon } from '@chakra-ui/react';
 import { BsFacebook, BsApple, BsGoogle } from 'react-icons/bs';
 
 function Login() {
   const [formData, setFormData] = useState('');
   const [flag, setFlag] = useState(false);
-  const { isAuth, token, loginUser } = useContext(AuthContext);
+  const { isAuth, token, loginUser, email } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const FormRef = useRef();
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
 
 
 
@@ -43,7 +45,7 @@ function Login() {
       loginUser(res.token, formData.email);
     }).catch((err) => {
       console.log(err)
-    }).finally(()=>{
+    }).finally(() => {
       setLoading(false);
     });
   };
@@ -52,10 +54,10 @@ function Login() {
     email: "pushpendra1697@gmail.com",
     password: "Push1697@",
   };
-  if (isAuth && token === undefined && formData.email === OriginAdmin.email && formData.password === OriginAdmin.password) {
+  if (isAuth && token === undefined && email === OriginAdmin.email && formData.password === OriginAdmin.password) {
     alert("You are Admin So You can Add any Product")
     return <Navigate to='/stays' />
-  }else if (isAuth && token !== null) {
+  } else if (isAuth && token !== null) {
     return <Navigate to='/'></Navigate>
   }
   return (
@@ -77,11 +79,19 @@ function Login() {
               </div>
               <div>
                 <label>
-                  <Input m={"1%"}
-                    type="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                  />
+                  <InputGroup size='md' mb={"1%"}>
+                    <Input
+                      pr='4.5rem'
+                      type={show ? 'text' : 'password'}
+                      placeholder='Enter password'
+                      onChange={handleChange}
+                    />
+                    <InputRightElement width='4.5rem'>
+                      <Button h='1.75rem' size='sm' onClick={handleClick}>
+                        {show ? 'Hide' : 'Show'}
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
                 </label>
               </div>
               <div>

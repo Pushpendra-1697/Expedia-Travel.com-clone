@@ -126,7 +126,14 @@ const Stays = () => {
           <Input color={"green"} w="200px" onChange={(e) => setQuery(e.target.value)} placeholder="Search Location" type={"text"} value={query} ></Input>
           <Button ml={"10px"} disabled={loading} onClick={handleSearch} color="green">{loading ? "Loading" : "Search"}</Button>
         </Box>
-        <Container className="mapouter"><Box className="gmap_canvas"><iframe loading="eager" src={`https://maps.google.com/maps?q=${tempo}&t=&z=13&ie=UTF8&iwloc=&output=embed`} width="250" height="150" id="gmap_canvas" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe><a href="https://2piratebay.org"></a><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></Box></Container>
+        <Container className="mapouter">
+          <Box className="gmap_canvas">
+            <iframe loading="eager" src={`https://maps.google.com/maps?q=${tempo}&t=&z=13&ie=UTF8&iwloc=&output=embed`} width="250" height="150" id="gmap_canvas" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0">
+            </iframe>
+            <a href="https://2piratebay.org"></a>
+            <a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
+          </Box>
+        </Container>
       </Container>
 
       <Container mt={"3%"}>
