@@ -1,0 +1,130 @@
+{
+  "Stays": [
+    {
+      "image_url": "https://images.trvl-media.com/hotels/45000000/44800000/44795100/44795042/16a3dca1_b.jpg",
+      "name": "Treebo Trend Lake Bloom",
+      "location": "Mumbai",
+      "rating": "3.5",
+      "price": 2829,
+      "isStatus": true,
+      "id": 1
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/19000000/18750000/18749700/18749605/33d7e9c9_b.jpg",
+      "name": "Treebo Trend Olive Inn",
+      "location": "Mumbai",
+      "rating": "3.4",
+      "price": 4357,
+      "isStatus": "",
+      "id": 2
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/77000000/76030000/76021300/76021212/2468097e_b.jpg",
+      "name": "Treebo Trend Galaxy Inn",
+      "location": "Kanpur",
+      "rating": "1",
+      "price": 2817,
+      "isStatus": true,
+      "id": 3
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/88000000/87670000/87664400/87664400/fb7e8735_b.jpg",
+      "name": "Adiva Residency Beacon Greek",
+      "location": "Lucknow",
+      "rating": "0",
+      "price": 4416,
+      "isStatus": "",
+      "id": 4
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/40000000/39730000/39721600/39721512/73f54f62_b.jpg",
+      "name": "Treebo Trend Arvind Resident",
+      "location": "New Delhi",
+      "rating": "5",
+      "price": 3541,
+      "isStatus": true,
+      "id": 5
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/25000000/24900000/24894100/24894039/d38e0ac9_b.jpg",
+      "name": "Karan Holidays",
+      "location": "Dubai",
+      "rating": "9",
+      "price": 3214,
+      "isStatus": true,
+      "id": 7
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/9000000/8760000/8757400/8757358/3ecce8a2_b.jpg",
+      "name": "Eternity",
+      "location": "Bengaluru",
+      "rating": "3",
+      "price": 5623,
+      "isStatus": "",
+      "id": 8
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/3000000/2890000/2882600/2882514/0c091cff_b.jpg",
+      "name": "IntreContinential Residence",
+      "location": "Dubai",
+      "rating": "4.2",
+      "price": 12489,
+      "isStatus": true,
+      "id": 9
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/19000000/18590000/18588000/18587974/6b443f8b_b.jpg",
+      "name": "Bhagini Icon Premier",
+      "location": "Bengaluru",
+      "rating": "6",
+      "price": 6720,
+      "isStatus": true,
+      "id": 10
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/67000000/66910000/66902900/66902819/69a84209_b.jpg",
+      "name": "Treebo Trip Comfort Delight",
+      "location": "Bengaluru",
+      "rating": "7.8",
+      "price": 1494,
+      "isStatus": true,
+      "id": 11
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/40000000/39460000/39454700/39454679/69799817_b.jpg",
+      "name": "City Pune Galaxy",
+      "location": "Pune",
+      "rating": "9.5",
+      "price": 2164,
+      "isStatus": false,
+      "id": 13
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/46000000/45040000/45037800/45037732/dd715a0f_b.jpg",
+      "name": "Oyo AI Hotel",
+      "location": "Kanpur",
+      "rating": "8",
+      "price": 5179,
+      "isStatus": false,
+      "id": 14
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/46000000/45040000/45037800/45037732/dd715a0f_b.jpg",
+      "name": "InterConnection Residential",
+      "location": "Lucknow",
+      "rating": "3.6",
+      "price": 37656,
+      "isStatus": false,
+      "id": 15
+    },
+    {
+      "image_url": "https://images.trvl-media.com/hotels/68000000/67580000/67579500/67579446/86bb7ea6_b.jpg",
+      "name": "Treebo Trand Seema",
+      "location": "Pune",
+      "rating": "8.6",
+      "price": 89999,
+      "isStatus": true,
+      "id": 16
+    }
+  ]
+}
