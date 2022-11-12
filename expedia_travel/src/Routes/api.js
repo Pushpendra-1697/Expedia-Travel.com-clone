@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getStays = ({ page = 1, limit = 10, sort = "name", order = "asc" }) => {
     return axios({
         method: 'get',
-        url: "http://localhost:3000/Stays",
+        url: "https://rct101-mock-server.herokuapp.com/api/Stays",
         params: {
             _page: page,
             _limit: limit,
@@ -16,7 +16,7 @@ export const getStays = ({ page = 1, limit = 10, sort = "name", order = "asc" })
 export const addStays = (data) => {
     return axios({
         method: 'post',
-        url: "http://localhost:3000/Stays",
+        url: "https://rct101-mock-server.herokuapp.com/api/Stays",
         data: {
             image_url: data.image_url,
             name: data.name,
@@ -31,14 +31,14 @@ export const addStays = (data) => {
 export const deleteStays = (id) => {
     return axios({
         method: 'delete',
-        url: `http://localhost:3000/Stays/${id}`,
+        url: `https://rct101-mock-server.herokuapp.com/api/Stays/${id}`,
     });
 };
 
 export const ToggleStatus = (id, newStatus) => {
     return axios({
         method: 'patch',
-        url: `http://localhost:3000/Stays/${id}`,
+        url: `https://rct101-mock-server.herokuapp.com/api/Stays/${id}`,
         data: { isStatus: newStatus }
     });
 };
