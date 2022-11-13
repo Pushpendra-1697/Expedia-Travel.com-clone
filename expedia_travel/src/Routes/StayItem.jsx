@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, Input, Select } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AuthContext } from '../Context/AuthContext';
+
 
 const initState = {
     image_url: '',
@@ -13,8 +15,12 @@ const initState = {
 
 const StayItem = ({ handleAddStays }) => {
     const [formData, setFormData] = useState(initState);
+    const { email } = useContext(AuthContext);
+    // console.log(email)
 
-
+    if (email !== "pushpendra1697@gmail.com") {
+        return;
+    }
     const handleChange = (e) => {
         let { name, value, checked, type } = e.target;
         value = type === 'checkbox' ? checked : value;
