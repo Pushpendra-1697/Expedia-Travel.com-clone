@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Box, Button, Image, Spinner } from '@chakra-ui/react';
+import { AuthContext } from '../Context/AuthContext';
 
 let totalPages = 3;
 const AllUsersPage = () => {
@@ -10,6 +11,7 @@ const AllUsersPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialPage = Number(searchParams.get("page")) || 1;
   const [page, setPage] = useState(initialPage);
+  const { email } = useContext(AuthContext);
 
   useEffect(() => {
     setLoading(true);
@@ -44,6 +46,9 @@ const AllUsersPage = () => {
   }
   if (error) {
     return <h1>Please Check Your Code Once!😒</h1>
+  }
+  if (email !== "pushpendra1697@gmail.com") {
+    return;
   }
   return (
     <Box w={"50%"} margin="auto">
