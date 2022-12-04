@@ -3,7 +3,9 @@
 
 # Overview of this App
 
-![Screenshot (66)](https://user-images.githubusercontent.com/104748364/204526374-97c2465c-e069-4a38-a619-7de85b2c9b26.png)
+
+![expedia travel](https://user-images.githubusercontent.com/104748364/205475957-ade316fa-bfdc-4910-ab22-e747ccb7ea57.png)
+
 # Tech Stacks Used
 - JavaScript
 - HTML
