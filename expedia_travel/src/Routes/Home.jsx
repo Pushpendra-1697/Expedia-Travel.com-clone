@@ -32,7 +32,7 @@ const Home = () => {
             You can enjoy access to perks like Member Prices, saving an average
             of 15% on thousands of hotels. Terms may apply.
           </Text>
-          <Button mt={"10px"} bg={"blue"}>
+          <Button mt={"10px"} bg={"blue"} variant="outline" color={"green.500"}>
             See Member Prices
           </Button>
         </Box>
@@ -81,7 +81,8 @@ const Home = () => {
             <Button
               m={{ base: "0%", sm: "5%", lg: "2% 0" }}
               bg={"blue"}
-              color="white"
+              color="black"
+              variant={"outline"}
             >
               Switch to the app
             </Button>

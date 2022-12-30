@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Box, Button, Image, Spinner } from '@chakra-ui/react';
 import { AuthContext } from '../Context/AuthContext';
+import Footer from '../Components/Footer';
 
 let totalPages = 3;
 const AllUsersPage = () => {
@@ -51,24 +52,27 @@ const AllUsersPage = () => {
     return;
   }
   return (
-    <Box w={"50%"} margin="auto">
-      {users.map((ele) =>
-        <Box key={ele.id} style={{ border: "1px solid black", margin: '5%', padding: "20px", color: "green", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}>
-          <Image ml={"40%"} src={ele.avatar
-          } alt="fake Album"></Image>
-          <h4>{`${ele.first_name} ${ele.last_name}`}</h4>
-          <h2>{ele.email}</h2>
-          <br />
-          <Link style={{ textDecoration: "none", color: "red", }} to={`/users/${ele.id}`}> Show More Details</Link>
-        </Box>
-      )}
-      <Box color={"green"}>
-        <Button onClick={() => setPage(1)}>First</Button>
-        <Button disabled={page <= 1} onClick={() => setPage(page - 1)}>PRE</Button>
-        <Button disabled={true} color={"red"}>{page}</Button>
-        <Button disabled={page === 10} onClick={() => setPage(page + 1)}>NEXT</Button>
-        <Button onClick={() => setPage(totalPages)} disabled={page > 3}>Last</Button>
+    <Box>
+      <Box margin="auto" display={"grid"} gridTemplateColumns={{base: "repeat(3,1fr)", sm: "repeat(2,1fr)", lg: "repeat(3,1fr)"}}>
+        {users.map((ele) =>
+          <Box key={ele.id} style={{ margin: '5%', padding: "20px", color: "green", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}>
+            <Image ml={"40%"} src={ele.avatar
+            } alt="fake Album"></Image>
+            <h4>{`${ele.first_name} ${ele.last_name}`}</h4>
+            <h2>{ele.email}</h2>
+            <br />
+            <Link style={{ textDecoration: "none", color: "red", }} to={`/users/${ele.id}`}> Show More Details</Link>
+          </Box>
+        )}
       </Box>
+      <Box color={"green"} display="flex" alignItems={"center"}justifyContent="center">
+        <Button bg="black" variant={"outline"} onClick={() => setPage(1)}>First</Button>
+        <Button bg="black" variant={"outline"} disabled={page <= 1} onClick={() => setPage(page - 1)}>PRE</Button>
+        <Button bg="black" variant={"outline"} disabled={true} color={"red.700"}>{page}</Button>
+        <Button bg="black" variant={"outline"} disabled={page === 10} onClick={() => setPage(page + 1)}>NEXT</Button>
+        <Button bg="black" variant={"outline"} onClick={() => setPage(totalPages)} disabled={page > 3}>Last</Button>
+      </Box>
+      <Footer />
     </Box>
   );
 }

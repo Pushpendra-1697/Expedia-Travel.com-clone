@@ -56,7 +56,7 @@ const Navbar = () => {
                 </NavLink>
             )}
 
-            {isAuth ? <Button display={{ base: "block", sm: "none", lg: "block" }} border={"none"} onClick={logoutUser}>SignOut</Button> : null}
+            {isAuth ? <Button variant={"outline"} bg="black" color={"white.700"} display={{ base: "block", sm: "none", lg: "block" }} border={"none"} onClick={logoutUser}>SignOut</Button> : null}
             {isAuth ? <Text display={{ base: "block", sm: "none", lg: "block" }} color={"green"}>Hi!❤️ Welcome Pushpendra Singh</Text> : null}
         </Box>
     );

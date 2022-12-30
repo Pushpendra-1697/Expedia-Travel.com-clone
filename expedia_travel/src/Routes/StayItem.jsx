@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Input, Select } from '@chakra-ui/react';
+import { Box, Container, Input, Select } from '@chakra-ui/react';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 
@@ -36,8 +36,8 @@ const StayItem = ({ handleAddStays }) => {
 
 
     return (
-        <>
-            <Box w={"40%"} m="auto" padding="20px 10px" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+        <Container>
+            <Box w={"100%"} m="auto" padding="20px 10px" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                 <form onSubmit={onSubmit}>
                     <label>Image url</label>
                     <Input color="green" ml={"10px"} w={"40%"} onChange={handleChange} type={"url"} name="image_url" value={image_url} placeholder='Hotel Image'></Input>
@@ -70,10 +70,10 @@ const StayItem = ({ handleAddStays }) => {
                     <input onChange={handleChange} type={"checkbox"} name="isStatus" checked={isStatus}></input>
                     <br></br>
                     <br></br>
-                    <Input color="white" bg="blue" w={"20%"} type={"submit"} value="Add Product"></Input>
+                    <Input textAlign={"center"} color="white" bg="blue" w="30%" type={"submit"} value="Add Product"></Input>
                 </form>
             </Box>
-        </>
+        </Container>
     );
 }
 

@@ -49,7 +49,6 @@ const SingleUserPage = () => {
         <Link style={{ textDecoration: "none", color: "green" }} to='/users'>Go Back</Link>
       </Box>
     </Container>
-
   );
 }
 

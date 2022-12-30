@@ -69,7 +69,7 @@ function Login() {
           <ModalBody>
             <Image src="https://a.travel-assets.com/pricing-claim/sparkle_white.svg" alt=""></Image>
             <Heading m={"5%"} as={"h6"} fontSize="18px" fontFamily={"monospace"} color="pink.700">Save an average of 15% on thousands of hotels when you're signed in</Heading>
-            <Button m={"5% 25%"} bg={"blue"}> <Icon m={"3%"} as={BsGoogle} />Sign in With Google</Button>
+            <Button color="black" m={"5% 25%"} bg={"blue"}> <Icon m={"3%"} as={BsGoogle} />Sign in With Google</Button>
             <Text textAlign={"center"} m={"3% 0"}>----------or-----------</Text>
             <form onSubmit={onSubmit} ref={FormRef}>
               <div>
@@ -88,7 +88,7 @@ function Login() {
                       color="pink.700"
                     />
                     <InputRightElement width='4.5rem'>
-                      <Button h='1.75rem' size='sm' onClick={handleClick} color="pink.700">
+                      <Button variant={"outline"} h='1.75rem' size='sm' onClick={handleClick} color="pink.700">
                         {show ? 'Hide' : 'Show'}
                       </Button>
                     </InputRightElement>
@@ -96,7 +96,7 @@ function Login() {
                 </label>
               </div>
               <div>
-                <Button m={" 0 40%"} disabled={flag === true} type="submit" onClick={() => FormRef.current.reset()} color="black" bg="green.400">
+                <Button variant={"outline"} m={" 0 40%"} disabled={flag === true} type="submit" onClick={() => FormRef.current.reset()} color="black" bg="green.400">
                   Sign in
                 </Button>
                 {loading && <Spinner color="red.500" size="lg" />}
