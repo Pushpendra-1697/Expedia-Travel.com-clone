@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Button, Heading, Image, Text, Input } from "@chakra-ui/react";
 import Footer from "../Components/Footer";
+import Carousel1 from "./Carousel1";
+import "./Carousel.css";
 
 const Home = () => {
   return (
@@ -11,12 +13,9 @@ const Home = () => {
         borderRadius="10px"
         position={"relative"}
       >
-        <Image
-          w={"100%"}
-          borderRadius="10px"
-          src="https://a.travel-assets.com/travel-assets-manager/cmct-5255/POSa-HP-Hero-D-928x398.jpg"
-          alt=""
-        />
+        <Carousel1 />
+
+        {/* <Box className="slideshow"></Box> */}
         <Box
           position={"absolute"}
           zIndex={"6"}

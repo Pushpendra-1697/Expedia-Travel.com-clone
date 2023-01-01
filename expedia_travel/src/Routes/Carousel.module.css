@@ -1,0 +1,20 @@
+.slidecontainer {
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.eachslide > div {
+  align-items: center;
+  justify-content: center;
+  background-size: contain;
+  height: 400px;
+}
+
+.eachslide span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+}
