@@ -2,9 +2,8 @@
 - DeployLinkVercel = "https://expedia-travel.vercel.app"
 
 # Overview of this App
+![expedia travel](https://user-images.githubusercontent.com/104748364/210863870-334084d6-0205-4225-91f1-654aeffd2fbc.png)
 
-
-![expedia travel](https://user-images.githubusercontent.com/104748364/205475957-ade316fa-bfdc-4910-ab22-e747ccb7ea57.png)
 
 # Tech Stacks Used
 - JavaScript
