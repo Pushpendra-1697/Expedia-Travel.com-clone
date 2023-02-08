@@ -43,7 +43,7 @@ function FlightSearch() {
   };
   // console.log(filter)
   return (
-    <div>
+    <Box>
       <Box boxShadow= "rgba(0, 0, 0, 0.35) 0px 5px 15px;" w={"600px"} m="auto" mb={"3%"}>
         <section>
           <Heading color={"green"}>Flight Search</Heading>
@@ -74,7 +74,7 @@ function FlightSearch() {
           </Tbody>
         </Table>
       }
-    </div>
+    </Box>
   );
 }
 

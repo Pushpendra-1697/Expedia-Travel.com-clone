@@ -1,10 +1,19 @@
 .App {
   text-align: center;
+  border: 10px solid red;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+#light {
+  background-color: white;
+}
+
+#dark {
+  background-color: #282c34;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -32,6 +41,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

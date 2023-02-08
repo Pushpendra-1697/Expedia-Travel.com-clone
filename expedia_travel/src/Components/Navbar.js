@@ -4,6 +4,8 @@ import { AuthContext } from '../Context/AuthContext';
 import { Text, Image, Button, Box, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, useDisclosure } from '@chakra-ui/react';
 import logo from '../Images/E.png';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import ReactSwitch from 'react-switch';
+import { ThemeContext } from '../Context/ThemeContext/ThemeContext';
 
 const links = [
     {
@@ -33,6 +35,7 @@ const links = [
 ];
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     let activeStyle = {
         textDecoration: "none",
@@ -99,6 +102,7 @@ const Navbar = () => {
 
                 {isAuth ? <Button variant={"outline"} bg="black" color={"red"} display={{ base: "block", sm: "none", lg: "block" }} border={"none"} onClick={logoutUser}>SignOut</Button> : null}
                 {isAuth ? <Text display={{ base: "block", sm: "none", lg: "block" }} color={"green"}>Welcome❤️{email}</Text> : null}
+                <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
             </Box>
         </Box>
     );
