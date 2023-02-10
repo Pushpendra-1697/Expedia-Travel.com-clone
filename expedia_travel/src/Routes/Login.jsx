@@ -4,11 +4,12 @@ import { AuthContext } from '../Context/AuthContext';
 import { Navigate } from 'react-router-dom';
 import { Box, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Image, Heading, Input, Text, Spinner, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { Icon } from '@chakra-ui/react';
-import { BsFacebook, BsApple, BsGoogle } from 'react-icons/bs';
+import { BsFacebook, BsApple } from 'react-icons/bs';
+import jwt_decode from "jwt-decode";
+import { GrGoogle } from 'react-icons/gr';
 
 function Login() {
   const [formData, setFormData] = useState('');
-  const [flag, setFlag] = useState(false);
   const { isAuth, token, loginUser, email } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const FormRef = useRef();
@@ -16,7 +17,24 @@ function Login() {
   const handleClick = () => setShow(!show);
 
 
+  /*google login*/
+  const handleCallbackResponse = (response) => {
+    var userObject = jwt_decode(response.credential);
+    loginUser(response.credential, userObject.name);
+  };
 
+  const handleGoogleLogin = () => {
+    /* global google */
+    google.accounts.id.initialize({
+      client_id:
+        "514340861987-f7tbdfd063bbb72d0452dm5je7onj1vj.apps.googleusercontent.com",
+      callback: handleCallbackResponse,
+    });
+    google.accounts.id.renderButton(document.querySelector("#signInDiv"), {
+      theme: "outline",
+      size: "large",
+    });
+  };
 
   const handleChange = (e) => {
     const { type, value } = e.target;
@@ -34,12 +52,19 @@ function Login() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setFlag(true);
-
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 5000);
+
+    if (formData.email.includes("@") === false) {
+      alert("Email should correct Formate");
+      return;
+    }
+    if (formData.password.length < 5) {
+      alert("Password should have atleast 5 characters");
+      return;
+    }
 
     handleLogin(formData).then((res) => res.json()).then((res) => {
       loginUser(res.token, formData.email);
@@ -69,8 +94,6 @@ function Login() {
           <ModalBody>
             <Image src="https://a.travel-assets.com/pricing-claim/sparkle_white.svg" alt=""></Image>
             <Heading m={"5%"} as={"h6"} fontSize="18px" fontFamily={"monospace"} color="pink.700">Save an average of 15% on thousands of hotels when you're signed in</Heading>
-            <Button color="black" m={"5% 25%"} bg={"blue"}> <Icon m={"3%"} as={BsGoogle} />Sign in With Google</Button>
-            <Text textAlign={"center"} m={"3% 0"}>----------or-----------</Text>
             <form onSubmit={onSubmit} ref={FormRef}>
               <div>
                 <label>
@@ -96,12 +119,16 @@ function Login() {
                 </label>
               </div>
               <div>
-                <Button variant={"outline"} m={" 0 40%"} disabled={flag === true} type="submit" onClick={() => FormRef.current.reset()} color="black" bg="green.400">
+                <Button variant={"outline"} m={" 0 40%"} type="submit" onClick={() => FormRef.current.reset()} color="black" bg="green.400">
                   Sign in
                 </Button>
                 {loading && <Spinner color="red.500" size="lg" />}
               </div>
             </form>
+
+            <Text textAlign={"center"} m={"3% 0"}>----------or-----------</Text>
+            <Box m={"5% 25%"} id="signInDiv" onClick={handleGoogleLogin}>Sign in with Google <Icon color={"red"} as={GrGoogle} /> </Box>
+
           </ModalBody>
           <Text textAlign={"center"}>Forget password?</Text>
           <Text textAlign={"center"}>Other ways to Sign in</Text>

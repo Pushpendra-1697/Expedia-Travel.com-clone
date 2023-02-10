@@ -46,7 +46,7 @@ const Navbar = () => {
         color: "black",
     };
 
-    const { isAuth, logoutUser, token, email } = useContext(AuthContext);
+    const { isAuth, logoutUser, email } = useContext(AuthContext);
     return (
         <Box style={{ position: "relative" }} display="flex" justifyContent="center" alignItems={"center"} mb={{ base: "5%", sm: "13%", lg: "5%" }}>
             <Box boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" display={{ base: "none", sm: "flex", lg: "none" }} position={"fixed"} top="0.1px" zIndex={"100"} bg="white" justifyContent="space-around" w="100%" padding={"10px"}>
@@ -88,7 +88,6 @@ const Navbar = () => {
             <Box display={{ base: "flex", sm: 'none', lg: "flex" }} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" position={"fixed"} top="0.1px" zIndex={"100"} bg="white" justifyContent="space-around" w="100%" padding={"10px"}>
                 <Link to={"/"}> <Image display={{ base: "block", sm: "none", lg: "block" }} src='https://www.expedia.co.in/_dms/header/logo.svg?locale=en_GB&siteid=27&2' alt='' /> </Link>
                 {/* <Link to={"/"}> <Image display={{ base: "block", sm: "none", lg: "block" }} w={"40px"} h={"40px"} src={logo} alt='logo' /> </Link> */}
-                <Text display={{ base: "block", sm: "none", lg: "block" }} color='green'>{token}</Text>
                 {links.map((ele) =>
                     <NavLink
                         key={ele.to}
