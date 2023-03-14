@@ -6,6 +6,7 @@ import logo from '../Images/E.png';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import ReactSwitch from 'react-switch';
 import { ThemeContext } from '../Context/ThemeContext/ThemeContext';
+import './navbar.css';
 
 const links = [
     {
@@ -50,9 +51,9 @@ const Navbar = () => {
     return (
         <Box style={{ position: "relative" }} display="flex" justifyContent="center" alignItems={"center"} mb={{ base: "5%", sm: "13%", lg: "5%" }}>
             <Box boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" display={{ base: "none", sm: "flex", lg: "none" }} position={"fixed"} top="0.1px" zIndex={"100"} bg="white" justifyContent="space-around" w="100%" padding={"10px"}>
-                <Link to={"/"}> <Image src='https://www.expedia.co.in/_dms/header/logo.svg?locale=en_GB&siteid=27&2' alt='' /> </Link>
+                <Link className='icon' to={"/"}> <Image src='https://www.expedia.co.in/_dms/header/logo.svg?locale=en_GB&siteid=27&2' alt='' /> </Link>
                 {isAuth ? <Text color={"green"}>❤️Welcome! {email}</Text> : null}
-                <Button onClick={onOpen}><GiHamburgerMenu /></Button>
+                <Button className='icon' onClick={onOpen}><GiHamburgerMenu /></Button>
             </Box>
 
             <Box>
@@ -64,6 +65,7 @@ const Navbar = () => {
                             <Box display={"flex"} justifyContent="center" flexDirection={"column"} alignItems="center" gap={"10px"}>
                                 {links.map((ele) =>
                                     <NavLink
+                                    className='icon'
                                         key={ele.to}
                                         style={({ isActive }) => (isActive ? activeStyle : normalStyle)}
                                         to={ele.to}
@@ -76,7 +78,7 @@ const Navbar = () => {
                         </ModalBody>
 
                         <ModalFooter bg="blue.100">
-                            <Button colorScheme='blue' mr={3} onClick={onClose}>
+                            <Button className='icon' colorScheme='blue' mr={3} onClick={onClose}>
                                 Close
                             </Button>
                         </ModalFooter>
@@ -86,10 +88,11 @@ const Navbar = () => {
 
 
             <Box display={{ base: "flex", sm: 'none', lg: "flex" }} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" position={"fixed"} top="0.1px" zIndex={"100"} bg="white" justifyContent="space-around" w="100%" padding={"10px"}>
-                <Link to={"/"}> <Image display={{ base: "block", sm: "none", lg: "block" }} src='https://www.expedia.co.in/_dms/header/logo.svg?locale=en_GB&siteid=27&2' alt='' /> </Link>
+                <Link to={"/"}> <Image className='icon' display={{ base: "block", sm: "none", lg: "block" }} src='https://www.expedia.co.in/_dms/header/logo.svg?locale=en_GB&siteid=27&2' alt='' /> </Link>
                 {/* <Link to={"/"}> <Image display={{ base: "block", sm: "none", lg: "block" }} w={"40px"} h={"40px"} src={logo} alt='logo' /> </Link> */}
                 {links.map((ele) =>
                     <NavLink
+                    className='icon'
                         key={ele.to}
                         style={({ isActive }) => (isActive ? activeStyle : normalStyle)}
                         to={ele.to}
@@ -99,9 +102,9 @@ const Navbar = () => {
                     </NavLink>
                 )}
 
-                {isAuth ? <Button variant={"outline"} bg="black" color={"red"} display={{ base: "block", sm: "none", lg: "block" }} border={"none"} onClick={logoutUser}>SignOut</Button> : null}
-                {isAuth ? <Text display={{ base: "block", sm: "none", lg: "block" }} color={"green"}>Welcome❤️{email}</Text> : null}
-                <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+                {isAuth ? <Button className='icon' variant={"outline"} bg="black" color={"red"} display={{ base: "block", sm: "none", lg: "block" }} border={"none"} onClick={logoutUser}>SignOut</Button> : null}
+                {isAuth ? <Text className='icon' display={{ base: "block", sm: "none", lg: "block" }} color={"green"}>Welcome❤️{email}</Text> : null}
+                <ReactSwitch className='icon' onChange={toggleTheme} checked={theme === "dark"} />
             </Box>
         </Box>
     );
