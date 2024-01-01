@@ -4,6 +4,9 @@
 # Overview of this App
 ![expedia travel](https://user-images.githubusercontent.com/104748364/210863870-334084d6-0205-4225-91f1-654aeffd2fbc.png)
 
+# Admin Details:
+email: pushpendra1697@gmail.com
+password: Push1697@
 
 # Tech Stacks Used
 - JavaScript
