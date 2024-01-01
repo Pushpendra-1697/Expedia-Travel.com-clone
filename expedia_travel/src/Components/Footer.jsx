@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <>
-            <Box display={"flex"} justifyContent={"space-evenly"} m="2% 0">
+            <Box display={"flex"} flexDirection={{ base: 'column', sm: 'row', '2xl': 'row', xl: 'row', lg: 'row' }} justifyContent={"space-evenly"} m="2% 0" p='10px'>
                 <Text fontSize={"25px"} fontFamily={"sans-serif"} color="blue.700"><Link to={"/expedia"}>expedia group</Link></Text>
                 <Box textAlign={"left"} lineHeight={"35px"} color="blue" fontSize={{ base: "13px" }}>
                     <Text color="black">Company</Text>

@@ -1,10 +1,9 @@
 import React from 'react';
-import { Container, Heading, Text } from '@chakra-ui/react';
-import Footer from '../Components/Footer';
+import { Box, Container, Heading, Text } from '@chakra-ui/react';
 
 const AboutUs = () => {
   return (
-    <>
+    <Box p={'10px'}>
       <Container textAlign={"left"} borderRadius="10px" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" p={"10px"}>
         <Heading fontSize={"23px"} fontFamily="fantasy">About Us</Heading>
         <Text fontSize="14px" mb={"10%"}>Last revised on 1 September 2022</Text>
@@ -12,9 +11,8 @@ const AboutUs = () => {
         <Text fontSize="14px" m={"4% 0"}>This website is operated by Expedia, Inc., with its head office at 111 Expedia Group Way W, Seattle, WA98119, USA.</Text>
         <Text fontSize="14px" m={"4% 0"}>Expedia, Inc. is a registered Seller of Travel in the State of Washington USA, Licence No. 601975803.</Text>
         <Text fontSize="14px" m={"4% 0"}>Expedia, Inc. is part of the Expedia Group of companies.</Text>
-        <Footer />
       </Container>
-    </>
+    </Box>
   )
 }
 

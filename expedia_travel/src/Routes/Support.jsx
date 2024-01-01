@@ -1,7 +1,6 @@
 import React from 'react'
-import Footer from '../Components/Footer';
 import { Box, Button, Container, Heading, Input, InputGroup, InputLeftAddon, InputRightAddon, Text, Image, InputLeftElement } from '@chakra-ui/react';
-import { MdLocalPostOffice, MdOutlineAccessibility, MdMobileScreenShare, MdNotificationAdd, MdOutlinedFlag } from 'react-icons/md';
+import { MdOutlineAccessibility, MdMobileScreenShare, MdNotificationAdd, MdOutlinedFlag } from 'react-icons/md';
 import { FaFlagUsa } from 'react-icons/fa';
 import { GiBrazilFlag, GiEuropeanFlag, GiSouthAfricaFlag, GiTusksFlag, GiCheckeredFlag } from 'react-icons/gi';
 import { PhoneIcon } from '@chakra-ui/icons';
@@ -18,15 +17,15 @@ const Support = () => {
           <InputRightAddon children='.com' />
         </InputGroup>
       </Container>
-      <Container display={"flex"} gap="5%" m={"auto"} mt={'1%'}>
-        <Heading color={"gray"}>We are here to help</Heading>
+      <Container display={"flex"} alignItems={'center'} gap="5%" m={"auto"} mt={'1%'}>
+        <Heading color={"gray"} fontSize={{base:'20px', '2xl':'25px', xl:'25px', lg:'25px', sm:'23px'}}>We are here to help</Heading>
         <Button>Contact us</Button>
       </Container>
-      <Container display={"flex"} gap="5%" m={"auto"} mt="4%">
+      <Container display={"flex"} flexDirection={{base:'column', '2xl':'row', xl:'row', lg:'row', sm:'column'}} gap="10px" m={"auto"} mt="4%">
         <Box>
           <Heading fontSize={"20px"} mb="5px">Browse Help Topics</Heading>
           <Box boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" padding={"10px"}>
-            <Text fontSize={"19px"}><MdLocalPostOffice /> Customer Service</Text>
+            <Text>Customer Service</Text>
             <Text>Change & Cancel</Text>
             <Text>Payment & Receipts</Text>
             <Text>Refunds</Text>
@@ -117,8 +116,6 @@ const Support = () => {
         <Icon ml={"10px"} as={GiCheckeredFlag} />
         <Icon ml={"10px"} as={MdOutlinedFlag} />
       </Box>
-      <hr></hr>
-      <Footer />
     </>
   );
 }

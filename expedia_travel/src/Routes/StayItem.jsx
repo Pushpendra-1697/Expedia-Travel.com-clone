@@ -3,7 +3,6 @@ import { Box, Container, Input, Select } from '@chakra-ui/react';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 
-
 const initState = {
     image_url: '',
     name: '',
@@ -11,29 +10,26 @@ const initState = {
     rating: '',
     price: '',
     isStatus: ''
-}
-
+};
 const StayItem = ({ handleAddStays }) => {
     const [formData, setFormData] = useState(initState);
     const { email } = useContext(AuthContext);
-    // console.log(email)
 
     if (email !== "pushpendra1697@gmail.com") {
         return;
-    }
+    };
     const handleChange = (e) => {
         let { name, value, checked, type } = e.target;
         value = type === 'checkbox' ? checked : value;
         setFormData((prev) => ({ ...prev, [name]: value }));
-    }
+    };
 
     const onSubmit = (e) => {
         e.preventDefault();
         handleAddStays(formData);
         setFormData({ image_url: '', name: '', location: '', rating: '', price: '', isStatus: "" })
-    }
+    };
     const { image_url, name, location, rating, price, isStatus } = formData;
-
 
     return (
         <Container>
@@ -70,7 +66,7 @@ const StayItem = ({ handleAddStays }) => {
                     <input onChange={handleChange} type={"checkbox"} name="isStatus" checked={isStatus}></input>
                     <br></br>
                     <br></br>
-                    <Input textAlign={"center"} color="white" bg="blue" w="30%" type={"submit"} value="Add Product"></Input>
+                    <Input textAlign={"center"} color="white" bg="blue" w={{base:'50%', '2xl':'30%', xl:'30%', lg:'30%', sm:'40%'}} type={"submit"} value="Add Product"></Input>
                 </form>
             </Box>
         </Container>

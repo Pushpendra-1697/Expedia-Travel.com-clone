@@ -2,6 +2,8 @@ import React, { useRef, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Alert, AlertIcon, Button, Container, Input, Spinner, Stack, Text } from '@chakra-ui/react';
 import { AuthContext } from '../Context/AuthContext';
+import { CardContext } from '../Context/CartContext/CartContextProvider';
+import { checkout } from '../Context/CartContext/action';
 
 const SuccessPage = () => {
     const [formData, setFormData] = useState('');
@@ -11,24 +13,23 @@ const SuccessPage = () => {
     const ref = useRef(null);
     const navigate = useNavigate();
     const { email } = useContext(AuthContext);
-
+    const { dispatch } = useContext(CardContext);
 
     const handleChange = (e) => {
         const { type, value } = e.target;
         setFormData({ ...formData, [type]: value });
-    }
+    };
 
     const onSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
         ref.current = setInterval(() => {
             setCount((prev) => {
                 if (prev === 1) {
                     clearInterval(ref.current);
+                    setLoading(false);
                     if (formData.email === email) {
+                        dispatch(checkout());
                         navigate("/");
                     } else {
                         alert("Sorry!😒 Please Fill Correct Email Address")

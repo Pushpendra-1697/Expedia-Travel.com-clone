@@ -12,7 +12,6 @@ const SingleUserPage = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [error, setError] = useState(false);
-  // console.log("params", params) //gives unique id;
 
   useEffect(() => {
     setLoading(true)
@@ -30,7 +29,6 @@ const SingleUserPage = () => {
         setLoading(false);
       });
   }, [])
-  // console.log(data, typeof (data));
 
   if (loading) {
     return <Spinner color="red.500" size="lg" />
@@ -39,7 +37,7 @@ const SingleUserPage = () => {
     return <h1>Something went Wrong😒</h1>
   }
   return (
-    <Container>
+    <Container mt={'120px'}>
       <Box style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", padding: "10px" }}>
         <Image ml={"25%"} src={data.avatar} alt={params.user_id} width="200px" />
         <Text color={"goldenrod"}>User ID : {params.user_id}</Text>

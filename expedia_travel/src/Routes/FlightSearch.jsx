@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import SearchResults from './SearchResults';
-import { Button, Heading, Input, Text, Table, Thead, Tr, Th, Tbody, Box } from '@chakra-ui/react';
+import { Button, Heading, Input, Text, Table, Thead, Tr, Th, Tbody, Box, TableContainer } from '@chakra-ui/react';
 
 export const fetchData = async () => {
   try {
@@ -41,38 +41,39 @@ function FlightSearch() {
     });
     setFilter(p);
   };
-  // console.log(filter)
   return (
     <Box>
-      <Box boxShadow= "rgba(0, 0, 0, 0.35) 0px 5px 15px;" w={"600px"} m="auto" mb={"3%"}>
+      <Box boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" w={{ base: '300px', '2xl': '600px', xl: '600px', lg: '600px', sm: '500px' }} m="auto" mb={"3%"}>
         <section>
           <Heading color={"green"}>Flight Search</Heading>
           <br />
-          <Input color={"green"} w={"30%"} data-testid="source-input" placeholder="Source" onChange={hadleChange} />
+          <Input color={"green"} w={{base:'70%', '2xl':"40%", xl:"40%", lg:"40%", sm:'50%'}} data-testid="source-input" placeholder="Source" onChange={hadleChange} />
           <br /> <br />
-          <Input color={"green"} w={"30%"} data-testid="destination-input" placeholder="Destination" onChange={hadleChange} />
+          <Input color={"green"} w={{base:'70%', '2xl':"40%", xl:"40%", lg:"40%", sm:'50%'}} data-testid="destination-input" placeholder="Destination" onChange={hadleChange} />
           <br /> <br />
           <Button color={"white"} bg="blue" mb={'3%'} onClick={handleSearch} data-testid="search-button">Search</Button>
         </section>
       </Box>
       {state === '' || filter.length === 0 ? <Text color={"red"} fontSize="24px">No Flights Found</Text> :
-        <Table border={"1px solid red"} mt="5%">
-          <Thead>
-            <Tr>
-              <Th color={"green"} fontSize="21px">SOURCE</Th>
-              <Th color={"green"} fontSize="21px">DESTINATION</Th>
-              <Th color={"green"} fontSize="21px">DEPARTURE</Th>
-              <Th color={"green"} fontSize="21px">DURATION</Th>
-              <Th color={"green"} fontSize="21px">ARRIVAL</Th>
-              <Th color={"green"} fontSize="21px">PRICE</Th>
-            </Tr>
-          </Thead>
-          <Tbody data-testid="flight-results">
-            {filter.map((ele, index) =>
-              <SearchResults key={index} departure={ele.departure} duration={ele.duration} arrival={ele.arrival} price={ele.price} destination={ele.destination} source={ele.source} />
-            )}
-          </Tbody>
-        </Table>
+        <TableContainer>
+          <Table variant='simple'>
+            <Thead>
+              <Tr>
+                <Th color={"green"} fontSize="21px">SOURCE</Th>
+                <Th color={"green"} fontSize="21px">DESTINATION</Th>
+                <Th color={"green"} fontSize="21px">DEPARTURE</Th>
+                <Th color={"green"} fontSize="21px">DURATION</Th>
+                <Th color={"green"} fontSize="21px">ARRIVAL</Th>
+                <Th color={"green"} fontSize="21px">PRICE</Th>
+              </Tr>
+            </Thead>
+            <Tbody data-testid="flight-results">
+              {filter.map((ele, index) =>
+                <SearchResults key={index} departure={ele.departure} duration={ele.duration} arrival={ele.arrival} price={ele.price} destination={ele.destination} source={ele.source} />
+              )}
+            </Tbody>
+          </Table>
+        </TableContainer>
       }
     </Box>
   );

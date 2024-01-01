@@ -8,6 +8,5 @@ export const removeFromCart = (id) => ({
 });
 export const checkout = () => ({
     type: "CHECKOUT",
-
 });
 

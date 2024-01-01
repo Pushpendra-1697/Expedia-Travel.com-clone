@@ -3,7 +3,6 @@ import { addStays, deleteStays, getStays, ToggleStatus } from "./api";
 import { useState, useEffect, useContext } from "react";
 import { Container, Spinner, Image, Box, Heading, Text, Button, Input, Select } from "@chakra-ui/react";
 import { fetchProduct } from "./fetchProduct";
-import Footer from '../Components/Footer';
 import { CardContext } from '../Context/CartContext/CartContextProvider';
 import { addToCart } from '../Context/CartContext/action';
 import { AiFillDelete } from 'react-icons/ai';
@@ -112,7 +111,7 @@ const Stays = () => {
   }
 
   return (
-    <>
+    <Box>
       {error && <h1>Something Went Wrong Please Check Onces😒</h1>}
       <Box mb={"10px"}>
         <StayItem handleAddStays={handleAddStays} />
@@ -125,9 +124,8 @@ const Stays = () => {
         <option value={"desc"}>High_to_Low</option>
       </Select>
 
-      <Container display={"flex"}>
+      <Container display={"flex"} flexDirection={{ base: 'column', '2xl': 'row', xl: 'row', lg: 'row', sm: 'column' }} gap={'10px'}>
         <Box display={"flex"} mt="13%">
-          <label>Filter: </label>
           <Input color={"green"} w="200px" onChange={(e) => setQuery(e.target.value)} placeholder="Search Location" type={"text"} value={query} ></Input>
           <Button variant={"outline"} ml={"10px"} disabled={loading} onClick={handleSearch} color="green">{loading ? "Loading" : "Search"}</Button>
         </Box>
@@ -156,10 +154,10 @@ const Stays = () => {
         </Box>
       </Container>
       {loading && <Spinner color="red.500" size={"lg"} />}
-      <Box mt={"2%"} display={"grid"} gridTemplateColumns={{ base: "repeat(3,1fr)", sm: "repeat(2,1fr)", lg: "repeat(3,1fr)" }} gap="20px">
+      <Box mt={"2%"} display={"grid"} gridTemplateColumns={{ base: "repeat(1,1fr)", '2xl': 'repeat(3,1fr)', xl: 'repeat(3,1fr)', lg: "repeat(3,1fr)", sm: "repeat(2,1fr)" }} gap="20px" p='20px'>
         {data && data.map((ele) =>
-          <Box key={ele.id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-            <Image borderRadius="10px" w="100%" height={"300px"} src={ele.image_url}></Image>
+          <Box key={ele.id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px;" pb={'5px'}>
+            <Image w="100%" height={"300px"} src={ele.image_url}></Image>
             <Heading fontFamily={"heading"} mt="10%" fontSize="18px">{ele.name}</Heading>
             <Box display={"flex"} justifyContent="space-around" m="10px">
               <Text m="10px 0" color={"green"}>{ele.location}</Text>
@@ -175,9 +173,7 @@ const Stays = () => {
           </Box>
         )}
       </Box>
-      <hr></hr>
-      <Footer />
-    </>
+    </Box>
   );
 }
 

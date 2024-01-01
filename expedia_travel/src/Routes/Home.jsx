@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Button, Heading, Image, Text, Input } from "@chakra-ui/react";
-import Footer from "../Components/Footer";
 import Carousel1 from "./Carousel1";
 import "./Carousel.css";
 
@@ -15,7 +14,6 @@ const Home = () => {
       >
         <Carousel1 />
 
-        {/* <Box className="slideshow"></Box> */}
         <Box
           position={"absolute"}
           zIndex={"6"}
@@ -25,6 +23,7 @@ const Home = () => {
           w={{ base: "30%", sm: "100%", lg: "30%" }}
           color="white"
           lineHeight={"20px"}
+          display={{ base: 'none', '2xl': 'block', xl: 'block', lg: 'block', sm: 'none' }}
         >
           <Heading>Save instantly with Expedia Rewards</Heading>
           <Text>
@@ -45,14 +44,15 @@ const Home = () => {
         m={"auto"}
         borderRadius="10px"
         mt="4%"
+        flexDirection={{ base: 'column', '2xl': 'row', xl: 'row', lg: 'row', sm: 'column' }}
       >
         <Image
           borderRadius="10px"
-          w={"30%"}
+          w={{ base: '100%', '2xl': '30%', xl: '30%', lg: '40%', sm: '100%' }}
           src="https://a.travel-assets.com/mad-service/footer/bnaBanners/BEX_ROME_iStock_72dpi.jpg"
-          alt=""
+          alt="profile"
         />
-        <Box w={{ base: "45%", sm: "60%", lg: "45%" }} p="20px 0">
+        <Box w={{ base: "100%", sm: "100%", lg: "45%", '2xl': '45%', xl: '50%' }} p="20px 0">
           <Heading mb={"10px"} as={"h1"}>
             Our app takes you further
           </Heading>
@@ -70,10 +70,8 @@ const Home = () => {
           >
             Text yourself a download link for easy access
           </Heading>
-          <Box display={"flex"}>
+          <Box display={"flex"} alignItems={'center'} p='10px' gap={'5px'}>
             <Input
-              display={{ base: "block", sm: "none", lg: "block" }}
-              m={"2%"}
               placeholder="+91 Phone number"
               w="40%"
             ></Input>
@@ -95,7 +93,7 @@ const Home = () => {
             may apply.
           </Text>
         </Box>
-        <Box w="30%" display={{ base: "block", sm: "none", lg: "block" }}>
+        <Box w="30%" display={{ base: "none", '2xl': 'block', xl: 'block', lg: 'block', sm: "none" }}>
           <Image
             m={"20% 30% 0 30%"}
             w="40%"
@@ -105,6 +103,7 @@ const Home = () => {
           <Text>Scan the QR Code</Text>
         </Box>
       </Box>
+
       <Box
         display={"flex"}
         gap="3%"
@@ -160,8 +159,6 @@ const Home = () => {
         <Text>Explore a world of travel with Expedia</Text>
         <Text color={"blue"}>Discover new places and experiences</Text>
       </Box>
-
-      <Footer />
     </>
   );
 };

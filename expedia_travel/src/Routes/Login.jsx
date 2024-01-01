@@ -97,7 +97,7 @@ function Login() {
             <form onSubmit={onSubmit} ref={FormRef}>
               <div>
                 <label>
-                  <Input m={"1%"} type="email" placeholder="Email address" onChange={handleChange} color="pink.700" />
+                  <Input mb={"1%"} type="email" placeholder="Email address" onChange={handleChange} color="pink.700" />
                 </label>
               </div>
               <div>
