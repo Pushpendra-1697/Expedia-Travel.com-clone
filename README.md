@@ -18,7 +18,7 @@ password: Push1697@
 - HTML
 - CSS
 - React.js
-- Reusable Components
+- Reusable React Components
 - React-router-dom
 # Features
 - Data Authentication and Validation for all the users (Admin Side and User Side).
