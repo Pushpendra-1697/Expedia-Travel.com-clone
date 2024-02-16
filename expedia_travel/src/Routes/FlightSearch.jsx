@@ -27,7 +27,6 @@ function FlightSearch() {
         console.log(err);
       });
   }, []);
-  console.log(data)
 
   const hadleChange = (e) => {
     const { value, placeholder } = e.target;
@@ -36,10 +35,10 @@ function FlightSearch() {
 
   const handleSearch = () => {
     const { Source, Destination } = state;
-    let p = data.filter((ele) => {
+    let filteredFlights = data.filter((ele) => {
       return ele.source === Source && ele.destination === Destination;
     });
-    setFilter(p);
+    setFilter(filteredFlights);
   };
   return (
     <Box>
@@ -65,6 +64,7 @@ function FlightSearch() {
                 <Th color={"green"} fontSize="21px">DURATION</Th>
                 <Th color={"green"} fontSize="21px">ARRIVAL</Th>
                 <Th color={"green"} fontSize="21px">PRICE</Th>
+                <Th color={"green"} fontSize="21px">BOOKING</Th>
               </Tr>
             </Thead>
             <Tbody data-testid="flight-results">
